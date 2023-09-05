@@ -11,7 +11,7 @@
     
     <ScrollView>
 
-        <StackLayout Padding="10" Spacing="20">
+        <StackLayout Padding="5" Spacing="20">
             <StackLayout HorizontalOptions="Start" VerticalOptions="Start" Padding="5">
                 <Button Command="{Binding MoveBackCommand}"></Button>
             </StackLayout>
@@ -33,22 +33,23 @@
 
             </StackLayout>
 
-            <StackLayout Spacing="10" Padding="0">
+            <StackLayout Spacing="20" Padding="0">
 
-                <Border>
-                    <Entry Placeholder="Email" PlaceholderColor="DarkGray"></Entry>
-                </Border>
+                <Frame Padding="2" BorderColor="DarkGrey">
+                    <Entry Placeholder="Email" PlaceholderColor="DarkGray" ></Entry>
+                </Frame>
 
-                <Border>
+                <Frame Padding="2" BorderColor="DarkGrey">
                     <Entry Placeholder="Senha" PlaceholderColor="DarkGray" IsPassword="True"></Entry>
-                </Border>
+                </Frame>
+
 
             </StackLayout>
 
-                <VerticalStackLayout VerticalOptions="Center" Spacing="20">
+                <VerticalStackLayout VerticalOptions="Center" Spacing="20" Padding="110">
 
-                <Button Text="Entrar" BackgroundColor="#470073"></Button>
-                    <Label Text="Esqueci minha senha"></Label>
+                <Button Text="Entrar" BackgroundColor="#470073" WidthRequest="270" FontSize="18"></Button>
+                    <Label Text="Esqueci minha senha" FontSize="18" HorizontalOptions="Center" TextDecorations="Underline"></Label>
 
                 </VerticalStackLayout>
 
