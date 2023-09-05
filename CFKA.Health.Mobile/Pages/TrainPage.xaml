@@ -3,11 +3,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModel="clr-namespace:CFKA.Health.Mobile.ViewModel"
-             x:Class="CFKA.Health.Mobile.Pages.MainPage"
+             x:Class="CFKA.Health.Mobile.Pages.TrainPage"
              BackgroundColor="#F8F0DE"
              Shell.NavBarIsVisible="False"
-             x:DataType="viewModel:MainViewModel">
+             x:DataType="viewModel:TrainViewModel">
+
     <ContentPage.Content>
-        
+            <StackLayout HorizontalOptions="Start" VerticalOptions="Start" Padding="5">
+                <Button Command="{Binding MoveBackCommand}"></Button>
+            </StackLayout>
     </ContentPage.Content>
+
 </ContentPage>

@@ -2,9 +2,9 @@
 
 namespace CFKA.Health.Mobile.Pages;
 
-public partial class MainPage : ContentPage
+public partial class SignUpPage : ContentPage
 {
-    public MainPage(MainViewModel vm)
+    public SignUpPage(SignUpViewModel vm)
     {
         InitializeComponent();
         BindingContext = vm;

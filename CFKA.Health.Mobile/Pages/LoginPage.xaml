@@ -48,7 +48,7 @@
 
                 <VerticalStackLayout VerticalOptions="Center" Spacing="20" Padding="110">
 
-                <Button Text="Entrar" BackgroundColor="#470073" WidthRequest="270" FontSize="18"></Button>
+                <Button Text="Entrar" BackgroundColor="#470073" WidthRequest="270" FontSize="18" Command="{Binding Path=MoveToMainCommand}"></Button>
                     <Label Text="Esqueci minha senha" FontSize="18" HorizontalOptions="Center" TextDecorations="Underline"></Label>
 
                 </VerticalStackLayout>
