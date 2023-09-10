@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CFKA.Health.Mobile.Pages;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 
 namespace CFKA.Health.Mobile.ViewModel;
@@ -10,4 +11,7 @@ public partial class SignUpViewModel : ObservableObject
     {
         await Shell.Current.GoToAsync("..");
     }
+
+    [ICommand]
+    async Task MoveToMain() => await Shell.Current.GoToAsync(nameof(MainPage));
 }

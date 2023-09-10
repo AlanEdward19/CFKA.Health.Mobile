@@ -4,12 +4,168 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModel="clr-namespace:CFKA.Health.Mobile.ViewModel"
              x:Class="CFKA.Health.Mobile.Pages.SignUpPage"
+             BackgroundImageSource="signup_background.png"
              BackgroundColor="#F8F0DE"
              Shell.NavBarIsVisible="False"
              x:DataType="viewModel:SignUpViewModel">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="Start" VerticalOptions="Start" Padding="5">
-            <Button Command="{Binding MoveBackCommand}"></Button>
+        <StackLayout Padding="5,15,0,5" Spacing="20">
+
+            <StackLayout HorizontalOptions="Start" VerticalOptions="Start" Padding="5,0,0,0">
+                <Button Command="{Binding MoveBackCommand}"></Button>
+            </StackLayout>
+
+            <StackLayout Padding="5,10,10,5" Spacing="20">
+
+                <StackLayout>
+                    <StackLayout>
+                        <Label
+                        Text="Criar Conta"
+                        FontFamily="Inter"
+                        SemanticProperties.HeadingLevel="Level2"
+                        FontSize="30"
+                        TextColor="#545F71"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Start" />
+                    </StackLayout>
+
+                    <Label 
+                    Text="Preencha suas informações abaixo ou Faça login"
+                    FontFamily="Inter"
+                    FontSize="17"></Label>
+                </StackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="Start" Spacing="20">
+
+                    <StackLayout WidthRequest="180">
+                        <Label Padding="5,0,0,0"
+                           HorizontalTextAlignment="Start" 
+                           FontSize="15"
+                           TextColor="#545F71"
+                           VerticalOptions="Start" 
+                           Text="Nome"
+                           FontFamily="Inter"
+                           TextDecorations="Underline"></Label>
+
+                        <Frame Padding="2" BorderColor="DarkGrey">
+                            <Entry
+                            FontSize="15" 
+                            TextColor="#545F71" 
+                            FontFamily="Inter"
+                            ClearButtonVisibility="WhileEditing"
+                        ></Entry>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout WidthRequest="180">
+                        <Label Padding="5,0,0,0"
+                           HorizontalTextAlignment="Start" 
+                           FontSize="15"
+                           TextColor="#545F71"
+                           VerticalOptions="Start" 
+                           Text="Sobrenome"
+                           FontFamily="Inter"
+                           TextDecorations="Underline"></Label>
+
+                        <Frame Padding="2" BorderColor="DarkGrey">
+                            <Entry
+                            FontSize="15" 
+                            TextColor="#545F71" 
+                            FontFamily="Inter"
+                            ClearButtonVisibility="WhileEditing"
+                        ></Entry>
+                        </Frame>
+                    </StackLayout>
+
+                </HorizontalStackLayout>
+
+                <StackLayout>
+                    <Label Padding="5,0,0,0"
+                       HorizontalTextAlignment="Start" 
+                       FontSize="15"
+                       TextColor="#545F71"
+                       VerticalOptions="Start" 
+                       Text="Data de Nascimento"
+                       FontFamily="Inter"
+                       TextDecorations="Underline"></Label>
+
+                    <Frame Padding="2" BorderColor="DarkGrey">
+                        <DatePicker
+                        Format="dd/MM/yyyy"
+                        FontSize="15" 
+                        TextColor="#545F71" 
+                        FontFamily="Inter"
+                    ></DatePicker>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Padding="5,0,0,0"
+                       HorizontalTextAlignment="Start" 
+                       FontSize="15"
+                       TextColor="#545F71"
+                       VerticalOptions="Start" 
+                       Text="Email"
+                       FontFamily="Inter"
+                       TextDecorations="Underline"></Label>
+
+                    <Frame Padding="2" BorderColor="DarkGrey">
+                        <Entry
+                        FontSize="15" 
+                        TextColor="#545F71" 
+                        FontFamily="Inter"
+                        ClearButtonVisibility="WhileEditing"
+                    ></Entry>
+                    </Frame>
+                </StackLayout>
+
+
+                <StackLayout>
+                    <Label Padding="5,0,0,0"
+                       HorizontalTextAlignment="Start" 
+                       FontSize="15"
+                       TextColor="#545F71"
+                       VerticalOptions="Start" 
+                       Text="Senha"
+                       FontFamily="Inter"
+                       TextDecorations="Underline"></Label>
+
+                    <Frame Padding="2" BorderColor="DarkGrey">
+                        <Entry
+                        FontSize="15" 
+                        TextColor="#545F71" 
+                        FontFamily="Inter"
+                        ClearButtonVisibility="WhileEditing"
+                        IsPassword="True"
+                    ></Entry>
+                    </Frame>
+                </StackLayout>
+
+            </StackLayout>
+
+            <VerticalStackLayout VerticalOptions="Center" Spacing="20" Padding="0,120,0,0">
+
+                <Button 
+                    Text="Criar Conta" 
+                    BackgroundColor="#470073" 
+                    WidthRequest="270" 
+                    FontSize="18" 
+                    FontFamily="Inter"
+                    FontAttributes="Bold"
+                    Command="{Binding Path=MoveToMainCommand}"></Button>
+
+                <Label 
+                    Text="Já possui uma conta?" 
+                    FontSize="18" 
+                    HorizontalOptions="Center" 
+                    TextDecorations="Underline"
+                    FontFamily="Inter"
+                    FontAttributes="Bold"
+                    TextColor="White"></Label>
+
+            </VerticalStackLayout>
+
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>
