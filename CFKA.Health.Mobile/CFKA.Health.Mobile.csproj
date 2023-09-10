@@ -49,10 +49,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\Inter.ttf" />
 	  <None Remove="Resources\Images\cheese_background1.png" />
 	  <None Remove="Resources\Images\cheese_background2.png" />
 	  <None Remove="Resources\Images\initial_page.png" />
 	  <None Remove="Resources\Images\mutzarela_logo.png" />
+	  <None Remove="Resources\Images\signup_background.png" />
 	</ItemGroup>
 
 	<ItemGroup>
