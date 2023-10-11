@@ -1,24 +1,15 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:CFKA.Health.Mobile.ViewModel"
              x:Class="CFKA.Health.Mobile.Pages.MainTrainPage"
-             Title="MainTrainPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        
-        <Button Text="Treinos" BackgroundColor="#470073"
-        x:Name="btTrainPage"
-        Clicked="btTrainPage_Clicked"
-        HorizontalOptions="Center"></Button>
-
-        <Button
-            Text="voltar"
-            VerticalOptions="Center"
-            Clicked="Button_Clicked"/>
-
-
-    </VerticalStackLayout>
+             BackgroundColor="#F8F0DE"
+             Shell.NavBarIsVisible="False"
+             x:DataType="viewModel:MainTrainViewModel">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Start" VerticalOptions="Start" Padding="5">
+            <Button Command="{Binding MoveBackCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

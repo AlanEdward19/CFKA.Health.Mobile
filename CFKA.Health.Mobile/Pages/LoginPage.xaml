@@ -11,7 +11,7 @@
     
     <ScrollView>
 
-        <StackLayout Padding="10" Spacing="20">
+        <StackLayout Padding="5" Spacing="10">
             <StackLayout HorizontalOptions="Start" VerticalOptions="Start" Padding="5">
                 <Button Command="{Binding MoveBackCommand}"></Button>
             </StackLayout>
@@ -25,6 +25,7 @@
 
                 <Label
                 Text="Bem vindo de Volta!"
+                FontFamily="Inter"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="30"
                 TextColor="White"
@@ -33,24 +34,68 @@
 
             </StackLayout>
 
-            <StackLayout Spacing="10" Padding="0">
+            <StackLayout Spacing="20" Padding="0">
 
-                <Border>
-                    <Entry Placeholder="Email" PlaceholderColor="DarkGray"></Entry>
-                </Border>
+                <StackLayout>
+                    <Label Padding="5,0,0,0"
+                           HorizontalTextAlignment="Start" 
+                           FontSize="15"
+                           TextColor="#545F71"
+                           VerticalOptions="Start" 
+                           Text="Email"
+                           FontFamily="Inter"
+                           TextDecorations="Underline"></Label>
 
-                <Border>
-                    <Entry Placeholder="Senha" PlaceholderColor="DarkGray" IsPassword="True"></Entry>
-                </Border>
+                    <Frame Padding="2" BorderColor="DarkGrey">
+                        <Entry FontSize="15" 
+                               TextColor="#545F71" 
+                               FontFamily="Inter"
+                               ClearButtonVisibility="WhileEditing"
+                        ></Entry>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Padding="5,0,0,0"
+                           HorizontalTextAlignment="Start" 
+                           FontSize="15"
+                           TextColor="#545F71"
+                           VerticalOptions="Start" 
+                           Text="Senha"
+                           FontFamily="Inter"
+                           TextDecorations="Underline"></Label>
+
+                    <Frame Padding="2" BorderColor="DarkGrey">
+                        <Entry FontSize="15" 
+                               TextColor="#545F71" 
+                               IsPassword="True" 
+                               FontFamily="Inter" 
+                               ClearButtonVisibility="WhileEditing"></Entry>
+                    </Frame>
+                </StackLayout>
+
 
             </StackLayout>
 
-                <VerticalStackLayout VerticalOptions="Center" Spacing="20">
+                <VerticalStackLayout VerticalOptions="Center" Spacing="20" Padding="110">
 
-                <Button Text="Entrar" BackgroundColor="#470073"
-                        x:Name="btMainTrainPage"
-                        Clicked="btMainTrainPage_Clicked"></Button>
-                    <Label Text="Esqueci minha senha"></Label>
+                <Button 
+                    Text="Entrar" 
+                    BackgroundColor="#470073" 
+                    WidthRequest="270" 
+                    FontSize="18" 
+                    FontFamily="Inter"
+                    FontAttributes="Bold"
+                    Command="{Binding Path=MoveToMainCommand}"></Button>
+
+                    <Label 
+                        Text="Esqueci minha senha" 
+                        FontSize="18" 
+                        HorizontalOptions="Center" 
+                        TextDecorations="Underline"
+                        FontFamily="Inter"
+                        FontAttributes="Bold"
+                        TextColor="#545F71"></Label>
 
                 </VerticalStackLayout>
 

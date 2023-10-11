@@ -2,9 +2,9 @@
 
 namespace CFKA.Health.Mobile.Pages;
 
-public partial class TrainPage : ContentPage
+public partial class SettingsPage : ContentPage
 {
-    public TrainPage(TrainViewModel vm)
+    public SettingsPage(SettingsViewModel vm)
     {
         InitializeComponent();
         BindingContext = vm;
