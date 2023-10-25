@@ -1,4 +1,5 @@
-﻿using CFKA.Health.Mobile.ViewModel;
+﻿using CFKA.Health.Mobile.Pages;
+using CFKA.Health.Mobile.ViewModel;
 
 namespace CFKA.Health.Mobile;
 
@@ -6,8 +7,8 @@ public partial class InitialPage : ContentPage
 {
 
     public InitialPage(InitialViewModel vm)
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         BindingContext = vm;
     }
 }

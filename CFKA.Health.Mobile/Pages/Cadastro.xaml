@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CFKA.Health.Mobile.Pages.Cadastro"
+             BackgroundImageSource="initial_page.png"
+             BackgroundColor="#F8F0DE">
+    <VerticalStackLayout>
+
+        <Label 
+            Text="Nome"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry
+            x:Name="Nome"/>
+     
+        <Label 
+            Text="Email"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry
+            x:Name="email"/>
+        
+        <Label 
+            Text="Senha"
+            VerticalOptions="Start"
+            HorizontalOptions="Center" />
+
+        <Entry
+            x:Name="senha"/>
+        
+        <Label 
+            Text="Confirmar Senha"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"/>
+
+        <Entry
+            x:Name="confirmar"/>
+
+        <Button
+            x:Name="Confirmar"
+            WidthRequest="170"
+            BackgroundColor="#470073"
+            FontAttributes="Bold"
+            Text="Criar Conta"
+            SemanticProperties.Hint="Counts the number of times you click"
+            Clicked="CreateAccountBtn_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

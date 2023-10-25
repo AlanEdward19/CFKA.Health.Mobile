@@ -1,4 +1,5 @@
-﻿using CFKA.Health.Mobile.ViewModel;
+﻿using CFKA.Health.Mobile.Pages;
+using CFKA.Health.Mobile.ViewModel;
 
 namespace CFKA.Health.Mobile;
 
@@ -12,8 +13,9 @@ public partial class MainPage : ContentPage
         BindingContext = vm;
     }
 
-	private void OnCounterClicked(object sender, EventArgs e)
+	private async void OnCounterClicked(object sender, EventArgs e)
 	{
+		await Navigation.PushAsync(new Cadastro());
 		//count++;
 
 		//if (count == 1)
