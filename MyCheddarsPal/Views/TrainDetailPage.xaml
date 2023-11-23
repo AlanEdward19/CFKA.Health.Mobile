@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyCheddarsPal.Views.TrainDetailPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:MyCheddarsPal.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:MyCheddarsPal.ViewModels"
+    x:DataType="vm:TrainDetailViewModel"
+    BackgroundColor="#F8F0DE">
+    <ScrollView>
+        <VerticalStackLayout Margin="12" Spacing="10">
+
+            <Label
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="{Binding Train.Name}"
+                TextColor="#606060" />
+
+            <CollectionView ItemsSource="{Binding Train.TrainingExercises}">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            x:DataType="models:TrainingExerciseResponse"
+                            ColumnDefinitions="*"
+                            RowDefinitions="auto,auto,auto, auto, auto"
+                            RowSpacing="10">
+
+                            <Label
+                                Grid.Row="0"
+                                FontSize="Default"
+                                HorizontalOptions="Center"
+                                Text="{Binding Exercise.Name}"
+                                TextColor="#000000" />
+
+                            <toolkit:MediaElement
+                                x:Name="mediaElement"
+                                Grid.Row="1"
+                                HeightRequest="200"
+                                ShouldAutoPlay="False"
+                                ShouldShowPlaybackControls="True"
+                                Source="{Binding Exercise.Url}" />
+
+                            <HorizontalStackLayout
+                                Grid.Row="2"
+                                HorizontalOptions="Center"
+                                Spacing="100">
+                                <Label Text="{Binding Sets, StringFormat='Sets: {0}'}" TextColor="#606060" />
+                                <Label Text="{Binding Reps, StringFormat='Reps: {0}'}" TextColor="#606060" />
+                            </HorizontalStackLayout>
+
+                            <Label
+                                Grid.Row="3"
+                                FontAttributes="Bold"
+                                HorizontalOptions="Start"
+                                Text="Comments"
+                                TextColor="#606060"
+                                VerticalOptions="Start" />
+
+                            <Frame
+                                Grid.Row="4"
+                                Padding="10"
+                                BorderColor="Black"
+                                CornerRadius="10">
+                                <Label Text="{Binding Observations}" />
+                            </Frame>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="MyCheddarsPal.Views.AddTrainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:MyCheddarsPal.Models"
+    xmlns:vm="clr-namespace:MyCheddarsPal.ViewModels"
+    x:DataType="vm:AddTrainViewModel"
+    BackgroundColor="#F8F0DE">
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <StackLayout Padding="0,20,0,0" Spacing="3">
+            <Label
+                Padding="5,0,0,0"
+                FontFamily="Inter"
+                FontSize="15"
+                HorizontalTextAlignment="Start"
+                Text="Training update date"
+                TextColor="#68717F"
+                TextDecorations="Underline"
+                VerticalOptions="Start" />
+
+            <Border StrokeThickness="2">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+
+                <DatePicker
+                    BackgroundColor="White"
+                    Date="{Binding SelectedDate}"
+                    Format="dd/MM/yyyy"
+                    HorizontalOptions="Fill"
+                    MinimumDate="01/01/2000"
+                    TextColor="#545F71" />
+            </Border>
+        </StackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="100">
+            <Button
+                Background="#470073"
+                BorderColor="White"
+                BorderWidth="1"
+                Command="{Binding GoToAddExerciseCommand}"
+                FontAttributes="Bold"
+                FontFamily="Inter"
+                FontSize="12"
+                Text="Add"
+                TextColor="White" />
+
+            <Button
+                Background="#470073"
+                BorderColor="White"
+                BorderWidth="1"
+                FontAttributes="Bold"
+                FontFamily="Inter"
+                FontSize="12"
+                Text="Remove"
+                TextColor="White" />
+        </HorizontalStackLayout>
+
+        <StackLayout Padding="0,20,0,10">
+            <Label
+                FontAttributes="Bold"
+                FontSize="15"
+                HorizontalOptions="Center"
+                Text="Exercises"
+                TextColor="#68717F"
+                VerticalOptions="Center" />
+
+            <CollectionView
+                Margin="20"
+                EmptyView="No items found"
+                ItemsSource="{Binding SavedExercises}"
+                SelectedItem="{Binding SelectedExercise}"
+                SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            x:DataType="models:TrainingExerciseRequest"
+                            ColumnDefinitions="auto,auto,auto"
+                            HorizontalOptions="Center"
+                            RowDefinitions="auto,auto,auto, 10"
+                            RowSpacing="5">
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                Text="{Binding ExerciseName}"
+                                TextColor="#68717F" />
+
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                HorizontalOptions="End"
+                                Text="{Binding Sets, StringFormat='Sets: {0}'}"
+                                TextColor="#68717F" />
+
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                FontSize="Body"
+                                Text="{Binding Reps, StringFormat='Reps: {0}'}"
+                                TextColor="#68717F" />
+
+                            <BoxView
+                                Grid.Row="3"
+                                Grid.ColumnSpan="2"
+                                HeightRequest="1" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+
+        <StackLayout
+            Padding="0,200,0,0"
+            HorizontalOptions="Center"
+            VerticalOptions="End">
+
+            <Button
+                Background="#470073"
+                BorderColor="White"
+                BorderWidth="1"
+                Command="{Binding SaveTrainCommand}"
+                FontAttributes="Bold"
+                FontFamily="Inter"
+                FontSize="12"
+                Text="Save Train"
+                TextColor="White" />
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

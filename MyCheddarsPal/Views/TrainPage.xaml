@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyCheddarsPal.Views.TrainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:m="clr-namespace:MyCheddarsPal.Models"
+    xmlns:vm="clr-namespace:MyCheddarsPal.ViewModels"
+    x:DataType="vm:TrainViewModel"
+    BackgroundColor="#F8F0DE">
+
+    <RefreshView Command="{Binding RefreshingCommand}" IsRefreshing="{Binding IsRefreshing}">
+
+        <StackLayout Padding="20,10,20,0">
+            <StackLayout Padding="0,0,0,20" Spacing="4">
+                <Label
+                    Padding="5,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="15"
+                    HorizontalTextAlignment="Start"
+                    Text="Filter by muscle"
+                    TextColor="#606060"
+                    TextDecorations="Underline"
+                    VerticalOptions="Start" />
+
+                <Border StrokeThickness="2">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+
+                    <Picker
+                        BackgroundColor="White"
+                        ItemsSource="{Binding Muscles}"
+                        SelectedIndexChanged="Picker_OnSelectedIndexChanged"
+                        SelectedItem="{Binding SelectedMuscle}"
+                        TextColor="#545F71" />
+                </Border>
+
+                <Button
+                    BackgroundColor="#470073"
+                    Command="{Binding GoToAddTrainCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="Inter"
+                    FontSize="15"
+                    HorizontalOptions="End"
+                    Text="Add new Train"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+
+            </StackLayout>
+
+            <CollectionView ItemsSource="{Binding Trainings}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="m:TTrainResponse">
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems Mode="Execute">
+                                    <SwipeItem
+                                        BackgroundColor="Red"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TrainViewModel}}, Path=DeleteTrainCommand}"
+                                        CommandParameter="{Binding .}"
+                                        IconImageSource="favorite.png"
+                                        Text="Remove" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <SwipeView.LeftItems>
+                                <SwipeItems Mode="Execute">
+                                    <SwipeItem
+                                        BackgroundColor="LightGreen"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TrainViewModel}}, Path=GoToUpdateTrainCommand}"
+                                        CommandParameter="{Binding .}"
+                                        IconImageSource="favorite.png"
+                                        Text="Update" />
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+
+                            <SwipeView.Content>
+                                <Frame Margin="4" Padding="12">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TrainViewModel}}, Path=GoToDetailsCommand}"
+                                            CommandParameter="{Binding .}"
+                                            NumberOfTapsRequired="2" />
+                                    </Frame.GestureRecognizers>
+
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="Large"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding Name}"
+                                        TextColor="#606060" />
+
+                                </Frame>
+                            </SwipeView.Content>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </RefreshView>
+</ContentPage>

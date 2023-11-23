@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyCheddarsPal.Views.InitialPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MyCheddarsPal.ViewModels"
+    x:DataType="vm:InitialViewModel"
+    BackgroundImageSource="background1.png">
+
+    <VerticalStackLayout
+        HorizontalOptions="Center"
+        Spacing="20"
+        VerticalOptions="Center">
+
+        <Image
+            HeightRequest="200"
+            HorizontalOptions="Center"
+            Source="mutzarela_logo.png" />
+
+        <VerticalStackLayout Spacing="150" VerticalOptions="Center">
+
+            <StackLayout Spacing="30">
+
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="40"
+                    HorizontalOptions="Center"
+                    SemanticProperties.HeadingLevel="Level1"
+                    Text="MyCheddar's pal"
+                    TextColor="White" />
+
+                <StackLayout Spacing="5">
+
+                    <Label
+                        FontAttributes="Bold, Italic"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Text="Creating hassle-free workouts"
+                        TextColor="White" />
+
+                    <Label
+                        FontAttributes="Bold, Italic"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="@MutzarelaTech"
+                        TextColor="White" />
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="30">
+
+                <Button
+                    x:Name="LoginBtn"
+                    BackgroundColor="#470073"
+                    Command="{Binding GoToLoginCommand}"
+                    FontAttributes="Bold"
+                    Text="Login"
+                    TextColor="White"
+                    WidthRequest="170" />
+
+                <Button
+                    x:Name="CreateAccountBtn"
+                    BackgroundColor="#470073"
+                    FontAttributes="Bold"
+                    Text="Group Info"
+                    Command="{Binding ShowGroupInfoCommand}"
+                    TextColor="White"
+                    WidthRequest="170" />
+
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+
+</ContentPage>

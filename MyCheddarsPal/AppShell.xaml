@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MyCheddarsPal.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:local="clr-namespace:MyCheddarsPal"
+    xmlns:views="clr-namespace:MyCheddarsPal.Views"
+    BackgroundColor="#F8B409"
+    FlyoutBackgroundColor="#F8B409">
+
+    <Shell.Behaviors>
+        <behaviors:StatusBarBehavior StatusBarColor="#F8B409" StatusBarStyle="LightContent" />
+    </Shell.Behaviors>
+
+    <ShellContent
+        Title="InitialPage"
+        ContentTemplate="{DataTemplate views:InitialPage}"
+        Shell.NavBarIsVisible="False"
+        Shell.TabBarIsVisible="False" />
+
+
+    <FlyoutItem Title="Main Screen">
+        <Tab>
+            <ShellContent
+                ContentTemplate="{DataTemplate views:MainPage}"
+                Route="MainPage"
+                Shell.NavBarIsVisible="True" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Trainings">
+        <Tab>
+            <ShellContent
+                ContentTemplate="{DataTemplate views:TrainPage}"
+                Route="TrainPage"
+                Shell.NavBarIsVisible="True" />
+        </Tab>
+    </FlyoutItem>
+
+</Shell>

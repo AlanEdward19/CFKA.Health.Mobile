@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyCheddarsPal.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MyCheddarsPal.ViewModels"
+    x:DataType="vm:LoginViewModel"
+    BackgroundImageSource="background1.png">
+
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+        <StackLayout Padding="0" Spacing="15">
+
+            <Image
+                HeightRequest="250"
+                HorizontalOptions="Center"
+                Source="mutzarela_logo.png" />
+
+            <Label
+                FontAttributes="Bold"
+                FontFamily="Inter"
+                FontSize="30"
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level1"
+                Text="Welcome back!"
+                TextColor="White" />
+
+            <StackLayout Padding="0" Spacing="20">
+
+                <Grid
+                    ColumnDefinitions="*"
+                    RowDefinitions="*,auto,*"
+                    RowSpacing="15">
+
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        IsVisible="{Binding IsEnabled}">
+
+                        <Border
+                            HorizontalOptions="Center"
+                            StrokeThickness="2"
+                            WidthRequest="330">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+
+                            <Entry
+                                BackgroundColor="White"
+                                ClearButtonVisibility="WhileEditing"
+                                FontFamily="Inter"
+                                FontSize="15"
+                                Keyboard="Email"
+                                Placeholder="E-mail"
+                                Text="{Binding SEmail}"
+                                TextColor="#545F71" />
+                        </Border>
+                    </StackLayout>
+
+                    <ActivityIndicator
+                        Grid.Row="1"
+                        HeightRequest="150"
+                        HorizontalOptions="Center"
+                        IsRunning="{Binding LoginCommand.IsRunning}"
+                        IsVisible="{Binding LoginCommand.IsRunning}"
+                        VerticalOptions="Center"
+                        WidthRequest="150"
+                        Color="{StaticResource White}" />
+
+                    <StackLayout
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        IsVisible="{Binding IsEnabled}">
+
+                        <Border
+                            HorizontalOptions="Center"
+                            StrokeThickness="2"
+                            WidthRequest="330">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+
+                            <Grid>
+                                <Entry
+                                    BackgroundColor="White"
+                                    ClearButtonVisibility="WhileEditing"
+                                    FontFamily="Inter"
+                                    FontSize="15"
+                                    IsPassword="{Binding IsPassword, Mode=TwoWay}"
+                                    Placeholder="Password"
+                                    Text="{Binding Password}"
+                                    TextColor="#545F71" />
+
+                                <Image
+                                    Margin="0,0,8,0"
+                                    HeightRequest="24"
+                                    HorizontalOptions="End"
+                                    Source="eye_close.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="24">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=TogglePasswordVisibilityCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+                        </Border>
+                    </StackLayout>
+                </Grid>
+
+
+            </StackLayout>
+
+            <VerticalStackLayout
+                Padding="0,100,0,0"
+                Spacing="20"
+                VerticalOptions="Center">
+
+                <Button
+                    BackgroundColor="#470073"
+                    Command="{Binding Path=LoginCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="Inter"
+                    FontSize="18"
+                    Text="Sign In"
+                    TextColor="White"
+                    WidthRequest="270" />
+
+                <Label
+                    FontAttributes="Bold"
+                    FontFamily="Inter"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="Forget password"
+                    TextColor="#545F71"
+                    TextDecorations="Underline" />
+
+            </VerticalStackLayout>
+
+        </StackLayout>
+
+    </VerticalStackLayout>
+
+</ContentPage>

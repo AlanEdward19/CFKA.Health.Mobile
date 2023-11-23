@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="MyCheddarsPal.Views.AddExercisePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:MyCheddarsPal.Models"
+    xmlns:vm="clr-namespace:MyCheddarsPal.ViewModels"
+    x:DataType="vm:AddExerciseViewModel"
+    BackgroundColor="#F8F0DE">
+    <RefreshView Command="{Binding RefreshingCommand}" IsRefreshing="{Binding IsRefreshing}">
+        <VerticalStackLayout Padding="20" Spacing="35">
+            <Grid
+                ColumnDefinitions="*,*"
+                ColumnSpacing="10"
+                RowDefinitions="*,*"
+                RowSpacing="35">
+                <StackLayout
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Spacing="3">
+                    <Label
+                        Padding="5,0,0,0"
+                        FontFamily="Inter"
+                        FontSize="15"
+                        HorizontalTextAlignment="Start"
+                        Text="Muscle"
+                        TextColor="#68717F"
+                        TextDecorations="Underline"
+                        VerticalOptions="Start" />
+
+                    <Border StrokeThickness="2">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+
+                        <Picker
+                            BackgroundColor="White"
+                            ItemsSource="{Binding Muscles}"
+                            SelectedIndexChanged="Picker_OnSelectedIndexChanged"
+                            SelectedItem="{Binding SelectedMuscle}"
+                            TextColor="#545F71" />
+                    </Border>
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Spacing="3">
+                    <Label
+                        Padding="5,0,0,0"
+                        FontFamily="Inter"
+                        FontSize="15"
+                        HorizontalTextAlignment="Start"
+                        Text="Exercise"
+                        TextColor="#68717F"
+                        TextDecorations="Underline"
+                        VerticalOptions="Start" />
+
+                    <Border StrokeThickness="2">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+
+                        <Picker
+                            BackgroundColor="White"
+                            ItemDisplayBinding="{Binding EnName}"
+                            ItemsSource="{Binding Exercises}"
+                            SelectedItem="{Binding SelectedExercise}"
+                            TextColor="#545F71" />
+                    </Border>
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Spacing="3">
+                    <Label
+                        Padding="5,0,0,0"
+                        FontFamily="Inter"
+                        FontSize="15"
+                        HorizontalTextAlignment="Start"
+                        Text="Reps"
+                        TextColor="#68717F"
+                        TextDecorations="Underline"
+                        VerticalOptions="Start" />
+
+                    <Border StrokeThickness="2">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+
+                        <Entry
+                            BackgroundColor="White"
+                            ClearButtonVisibility="WhileEditing"
+                            FontSize="15"
+                            Text="{Binding Reps}"
+                            TextColor="#545F71" />
+                    </Border>
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Spacing="3">
+                    <Label
+                        Padding="5,0,0,0"
+                        FontFamily="Inter"
+                        FontSize="15"
+                        HorizontalTextAlignment="Start"
+                        Text="Sets"
+                        TextColor="#68717F"
+                        TextDecorations="Underline"
+                        VerticalOptions="Start" />
+
+                    <Border StrokeThickness="2">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+
+                        <Entry
+                            BackgroundColor="White"
+                            ClearButtonVisibility="WhileEditing"
+                            FontSize="15"
+                            Text="{Binding Sets}"
+                            TextColor="#545F71" />
+                    </Border>
+                </StackLayout>
+            </Grid>
+
+            <StackLayout Spacing="3">
+                <Label
+                    Padding="5,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="15"
+                    HorizontalTextAlignment="Start"
+                    Text="Comments"
+                    TextColor="#68717F"
+                    TextDecorations="Underline"
+                    VerticalOptions="Start" />
+
+                <Border StrokeThickness="2">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+
+                    <Entry
+                        BackgroundColor="White"
+                        ClearButtonVisibility="WhileEditing"
+                        FontSize="15"
+                        Text="{Binding Observations}"
+                        TextColor="#545F71" />
+                </Border>
+            </StackLayout>
+
+            <StackLayout
+                Padding="0,300,0,0"
+                HorizontalOptions="Center"
+                VerticalOptions="End">
+                <Button
+                    Background="#470073"
+                    BorderColor="White"
+                    BorderWidth="1"
+                    Command="{Binding SaveExerciseCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="Inter"
+                    FontSize="12"
+                    Text="Save Exercise"
+                    TextColor="White" />
+            </StackLayout>
+        </VerticalStackLayout>
+    </RefreshView>
+</ContentPage>
